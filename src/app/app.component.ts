@@ -8,6 +8,35 @@ import { RouterOutlet } from '@angular/router';
   template: `
     <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 1rem;">
 
+
+      <h3 #studying> I am Studying</h3>
+
+      <!--- on interaction(references with #)/ on timer(2s)/ viewport(references with #)-->
+      @defer(on hover(studying)) {
+        <h3 style="color: red;"> Element rendered on interaction</h3>
+
+      }@loading {
+        <span style="color: green;"> Loading Element to render</span>
+      }
+      @placeholder {
+        <span style="color: blue;"> Placeholder Element to render</span>
+      }@error {
+        <span style="color: red;"> Error Element to render</span>
+      }
+
+      <!-- @defer {
+        <h3 style="color: red;"> Second Element to render</h3>
+
+      }@loading {
+        <span style="color: green;"> Loading Element to render</span>
+      }
+      @placeholder {
+        <span style="color: blue;"> Placeholder Element to render</span>
+      }@error {
+        <span style="color: red;"> Error Element to render</span>
+      } -->
+
+    <!--
 @for (user of userDatasList; track user.id) {
 
   @switch (user.age) {
@@ -34,7 +63,7 @@ import { RouterOutlet } from '@angular/router';
 
 
 
-  <!-- @if(user.profession === 'Software Engineer'){
+  @if(user.profession === 'Software Engineer'){
 
     <span style="color: blue">{{user.name}} is {{user.profession}}</span>
 
@@ -50,11 +79,10 @@ import { RouterOutlet } from '@angular/router';
 
     <span style="color: black">{{user.name}} is {{user.profession}} and your age is {{user.age}}</span>
   }
-  }
-    -->
+
 }@empty{
   <span>No user found</span>
-}
+} -->
 </div>
   `,
   styleUrl: './app.component.scss'
