@@ -8,11 +8,11 @@ import { RouterOutlet } from '@angular/router';
   template: `
     <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 1rem;">
 
+      <button (click)="renderBlock = true">Renderizar titulo</button>
+      <!-- <h3 #studying> I am Studying</h3> -->
 
-      <h3 #studying> I am Studying</h3>
-
-      <!--- on interaction(references with #)/ on timer(2s)/ viewport(references with #)-->
-      @defer(on hover(studying)) {
+      <!--- on interaction(references with #)/ on timer(2s)/ viewport(references with #)/ imediate/ idle-->
+      @defer(when renderBlock) {
         <h3 style="color: red;"> Element rendered on interaction</h3>
 
       }@loading {
@@ -89,6 +89,8 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'learnAngular17';
+
+  renderBlock: boolean = false;
 
   userDatasList: Array<{
     id: number;
