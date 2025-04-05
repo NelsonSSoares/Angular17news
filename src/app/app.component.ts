@@ -16,7 +16,7 @@ export interface User {
   imports: [RouterOutlet, InputTransformComponent],
   template: `
 
-    <app-input-transform [user]="userDatasList[0]" [age]="userDatasList[0].age"/>
+    <app-input-transform [user]="userDatasList[0]" [age]="userDatasList[0].age" [showUserAge]="showUser"/>
 
 
     <!-- <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 1rem;"> -->
@@ -102,7 +102,7 @@ export interface User {
 })
 export class AppComponent {
   title = 'learnAngular17';
-
+  showUser = "true";
   renderBlock: boolean = false;
 
   userDatasList: Array<User> = [{

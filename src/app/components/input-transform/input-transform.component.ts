@@ -1,5 +1,5 @@
 import { User } from './../../app.component';
-import { Component, Input, numberAttribute, OnInit } from '@angular/core';
+import { booleanAttribute, Component, Input, numberAttribute, OnInit } from '@angular/core';
 
 //recomendado criar dentro de um arquivo separado, utils
 function setUsernameToUpperCase(user: User): User {
@@ -16,20 +16,24 @@ function setUsernameToUpperCase(user: User): User {
   standalone: true,
   styleUrls: [],
   template: `
-    <h2>Nome: {{user?.name}}</h2>
-    <h2>Idade: {{user?.age}}</h2>
-    <h2>Profissão: {{user?.profession}}</h2>
+   @if(showUserAge){
+
+   }
   `,
 })
 export class InputTransformComponent implements OnInit {
 
-  @Input({required: true, transform: setUsernameToUpperCase}) public user!: User;
-  @Input({required: true, transform: numberAttribute}) public age!: string;
-  public userAge!: number;
+  @Input({required: true, transform: setUsernameToUpperCase})
+   public user!: User;
+  @Input({required: true, transform: numberAttribute})
+   public age!: string;
+  @Input({required: true, transform: booleanAttribute})
+  public showUserAge!: boolean;
+
   constructor() { }
 
   ngOnInit() {
-    console.log(typeof this.userAge);
+    console.log(typeof this.showUserAge);
 
   }
 
