@@ -1,18 +1,31 @@
+import { InputTransformComponent } from './components/input-transform/input-transform.component';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
+export interface User {
+    id: number;
+    name: string;
+    age: number;
+    profession: string;
+}
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, InputTransformComponent],
   template: `
-    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 1rem;">
 
-      <button (click)="renderBlock = true">Renderizar titulo</button>
+    <app-input-transform [user]="userDatasList[0]"/>
+
+
+    <!-- <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 1rem;"> -->
+
+      <!-- <button (click)="renderBlock = true">Renderizar titulo</button> -->
       <!-- <h3 #studying> I am Studying</h3> -->
 
       <!--- on interaction(references with #)/ on timer(2s)/ viewport(references with #)/ imediate/ idle-->
-      @defer(when renderBlock) {
+      <!-- @defer(when renderBlock) {
         <h3 style="color: red;"> Element rendered on interaction</h3>
 
       }@loading {
@@ -22,7 +35,7 @@ import { RouterOutlet } from '@angular/router';
         <span style="color: blue;"> Placeholder Element to render</span>
       }@error {
         <span style="color: red;"> Error Element to render</span>
-      }
+      } -->
 
       <!-- @defer {
         <h3 style="color: red;"> Second Element to render</h3>
@@ -83,7 +96,7 @@ import { RouterOutlet } from '@angular/router';
 }@empty{
   <span>No user found</span>
 } -->
-</div>
+<!-- </div> -->
   `,
   styleUrl: './app.component.scss'
 })
@@ -92,12 +105,7 @@ export class AppComponent {
 
   renderBlock: boolean = false;
 
-  userDatasList: Array<{
-    id: number;
-    name: string;
-    age: number;
-    profession: string;
-  }> = [{
+  userDatasList: Array<User> = [{
     id: 1,
     name: 'John Doe',
     age: 30,
