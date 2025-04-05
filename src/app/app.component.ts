@@ -5,7 +5,7 @@ import { RouterOutlet } from '@angular/router';
 export interface User {
     id: number;
     name: string;
-    age: number;
+    age: string;
     profession: string;
 }
 
@@ -16,7 +16,7 @@ export interface User {
   imports: [RouterOutlet, InputTransformComponent],
   template: `
 
-    <app-input-transform [user]="userDatasList[0]"/>
+    <app-input-transform [user]="userDatasList[0]" [age]="userDatasList[0].age"/>
 
 
     <!-- <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 1rem;"> -->
@@ -108,28 +108,28 @@ export class AppComponent {
   userDatasList: Array<User> = [{
     id: 1,
     name: 'John Doe',
-    age: 30,
+    age: "30",
     profession: 'Software Engineer'
   }, {
     id: 2,
     name: 'Jane Smith',
-    age: 25,
+    age: "25",
     profession: 'Data Scientist'
   }, {
     id: 3,
     name: 'Alice Johnson',
-    age: 28,
+    age: "28",
     profession: 'Product Manager'
   },
   {
     id: 4,
     name: 'Bob Brown',
-    age: 35,
+    age: "35",
     profession: 'UX Designer'
   }, {
     id: 5,
     name: 'Charlie Davis',
-    age: 32,
+    age: "32",
     profession: 'DevOps Engineer'
   }]
 
